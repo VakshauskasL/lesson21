@@ -2,22 +2,22 @@
 
 //1
 /*
-//Написать функцию с названием searchArrayWord и ищет слово в массиве. Она принимает 2 параметра - 
-//1) Слово которое нужно найти
-//2) Массив в котором находятся элементы со словами. Например ['Кот', 'Собака', 'Жираф' ]
-//Функция должна вернуть true или false
+Написать функцию с названием searchArrayWord и ищет слово в массиве. Она принимает 2 параметра - 
+1) Слово которое нужно найти
+2) Массив в котором находятся элементы со словами. Например ['Кот', 'Собака', 'Жираф' ]
+Функция должна вернуть true или false
 */
 
-function searchArrayWord(word, array) {
-    for(let i = 0; i < array.length; i++) {
-        if(array.indexOf(word) != -1) {
-            return true;
+function searchArrayWord(array, word){
+    for(let i = 0; i < array.length; i += 1){
+        if( array[i] === word){
+           return true; 
         }
-        return false;
-    } 
+    }
+
+    return false;
 }
-let animals = ['Кот', 'Собака', 'Жираф'];
-console.log(searchArrayWord('Жираф', animals));
+console.log(searchArrayWord(['Кот', 'Собака', 'Жираф'], 'Собака'));
 
 
 
@@ -36,7 +36,7 @@ console.log(result);
 
 //3 Перевернуть элементы массива задом наперед. Не используя reverse(мы еще не учили его) var arr2 = [1, 3, 5, 6, 7, 9];
 
-var arr2 = [1, 3, 5, 6, 7, 9];
+/*var arr2 = [1, 3, 5, 6, 7, 9];
 
 for (var i = 0; i < arr2.length / 2; i++) {  
   
@@ -44,11 +44,12 @@ for (var i = 0; i < arr2.length / 2; i++) {
   var x = arr2[arr2.length - i - 1];
   arr2[arr2.length - i - 1] = index;
   arr2[i] = x;
-  console.log(arr2);
 }
+console.log(arr2);
+*/
 
-/*
-//С помощью reverse
+
+//2вариант
 var arr2 = [1, 3, 5, 6, 7, 9];
 var reverse=[];
 for (var i = arr2.length-1; i >= 0; i-- ) {
@@ -56,14 +57,24 @@ for (var i = arr2.length-1; i >= 0; i-- ) {
     }
     arr2 = reverse
     console.log(arr2);
-*/
+
 
 
 //4 Дан объект {html:'HTML', css: 'CSS', js: 'ECMA'}
 //Нужно получить массив ключей этого объекта и отобразить в консоли.
 
-var obj = {html:'HTML', css: 'CSS', js: 'ECMA'};
-console.log(Object.keys(obj)); // консоль: ['0', '1', '2']
+let obj = {html:'HTML', css: 'CSS', js: 'ECMA'};
+
+let mass = [];
+
+function getKeys(keys){
+    for(let key in keys){ 
+    mass.push(keys[key]);
+    }
+    return mass;
+}
+
+console.log(getKeys(obj));
 
 /*5. Создайте объект описывающий Заказ на сайте.
 Создать можно любым из способов - даже просто написать консрукцию var obj = {...}. 
